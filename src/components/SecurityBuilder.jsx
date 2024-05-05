@@ -1,8 +1,8 @@
 import Header from "../Pages/Header";
 import CodeBlock from "./CodeBlock";
-import { useNavigate } from "react-router-dom";
+import NavigateSpan from "./NavigateSpan";
+
 const SecurityBuilder = () => {
-  const nav = useNavigate();
   const SecurityBuilder = `public interface SecurityBuilder<O> {
         O build() throws Exception;
     }`;
@@ -17,24 +17,9 @@ const SecurityBuilder = () => {
       <Header text={"SecurityBuilder"} />
       <div>
         SecurityBuilder 클래스는 웹보안을 구성하는 역할을하며&nbsp;
-        <span
-          onClick={() => {
-            nav("/webSecurity");
-          }}
-          style={{ cursor: "pointer", textDecoration: "underline" }}
-        >
-          WebSecurity,
-        </span>
-        <span>&nbsp;</span>
-        <span
-          onClick={() => {
-            nav("/httpSecurity");
-          }}
-          style={{ cursor: "pointer", textDecoration: "underline" }}
-        >
-          HttpSecurity
-        </span>
-        가 있다.
+        <NavigateSpan navi={"/webSecurity"} text={"WebSecurity"} />
+        <span> ,&nbsp;</span>
+        <NavigateSpan navi={"/httpSecurity"} text={"HttpSecurity"} />가 있다.
       </div>
       <div>SecurityConfigurer 는 Http요청과 관련된 보안처리를 담당</div>
       <div>

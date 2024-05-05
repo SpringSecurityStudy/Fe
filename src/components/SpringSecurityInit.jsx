@@ -1,16 +1,17 @@
+import { useState } from "react";
 import Header from "../Pages/Header";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useNavigate } from "react-router-dom";
 import CodeBlock from "./CodeBlock";
-const SpringSecurityInit = () => {
-  const nav = useNavigate();
+import NavigateSpan from "./NavigateSpan";
 
+const SpringSecurityInit = () => {
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = () => {
+    setIsToggled((prevState) => !prevState);
+  };
   const SecurityFilterChainConfiguration = `class SpringBootWebSecurityConfiguration {
     @ConditionalOnDefaultWebSecurity
     static class SecurityFilterChainConfiguration {
-        SecurityFilterChainConfiguration() {
-        }
         @Bean
         @Order()
         SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -19,7 +20,7 @@ const SpringSecurityInit = () => {
             });
             http.formLogin(Customizer.withDefaults());
             http.httpBasic(Customizer.withDefaults());
-            return (SecurityFilterChain)http.build();
+            return http.build()
         }
     }
   }`;
@@ -40,27 +41,38 @@ const SpringSecurityInit = () => {
         }
     }
 }`;
+
   return (
     <div className="SpringSecurityInit">
       <Header text={"SpringSecurityInit"} />
       <div>
+        <h3>초기화 과정중</h3>
+        <NavigateSpan navi={"/httpSecurity"} text={"HttpSecurity"} />
+        <span> ,&nbsp;</span>
+        <NavigateSpan navi={"/webSecurity"} text={"WebSecurity"} />가 만들어지며 이들은 각 SecurityFilterChain,
+        FilterChainProxy를 만드는 최종목표를가지고있다
         <h3>자동 설정에 의한 기본보안</h3>
         <ul>
           <li>기본적으로 보안기능이 작동된다.</li>
           <li>로그인 페이지가 자동생성 된다.</li>
-          <li
-            className="BasicUserInfo"
-            style={{ cursor: "pointer", textDecoration: "underline" }}
-            onClick={() => {
-              nav("/basicUserInfo");
-            }}
-          >
-            기본 아이디와 비밀번호가 제공된다.
+          <li>
+            <NavigateSpan navi={"/basicUserInfo"} text={"기본 아이디와 비밀번호가 제공된다."} />
           </li>
         </ul>
         <CodeBlock text={SecurityFilterChainConfiguration} />
-        위의 @ConditionalOnDefaultWebSecurity 어노테이션내용에들어가보면 조건에
-        <CodeBlock text={DefaultWebSecurityCondition} />
+        <li>
+          <NavigateSpan navi={"/doBuild"} text={"http.build"} />
+        </li>
+        <br />
+        의존성 추가로만으로 보안이 활성화되는이유는
+        <button onClick={handleToggle}>{isToggled ? "접기" : "펼처보기"}</button>
+        {isToggled && (
+          <div>
+            <li>@ConditionalOnDefaultWebSecurity 어노테이션내용에들어가보면 조건에</li>
+            <CodeBlock text={DefaultWebSecurityCondition} />
+            <li>위 두조건이 만족할때에만 default 설정으로 filterChain이 생성된다</li>
+          </div>
+        )}
       </div>
     </div>
   );

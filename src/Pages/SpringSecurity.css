@@ -11,3 +11,40 @@
   border: solid 2px;
   width: fit-content;
 }
+.Architecture {
+  border: solid 3px rgb(218, 216, 105);
+  border-radius: 24px;
+  /* height: fit-content; */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  text-align: center;
+}
+.Architecture .Client {
+  border-radius: 50px;
+  border-color: aqua;
+  border: solid 3px rgb(212, 185, 185);
+  color: rgb(212, 185, 185);
+  height: fit-content;
+  padding: 10px;
+}
+
+.Architecture .Was {
+  border: solid 2px red;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.Architecture .Was .Servlet {
+  display: grid;
+  gap: 12px;
+}
+.Architecture .Was .Servlet {
+  display: grid;
+  gap: 12px;
+}

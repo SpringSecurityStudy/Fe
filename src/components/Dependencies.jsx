@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "../Pages/Header";
+import CodeBlock from "./CodeBlock";
 
 const Dependencies = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -20,15 +21,12 @@ const Dependencies = () => {
   return (
     <div>
       <Header text={"Dependencies"} />
-      <button onClick={handleToggle}>{isToggled ? "Hide" : "Show"}</button>
-      {isToggled && (
-        <div>
-          <pre>
-            <code>{codeString}</code>
-          </pre>
+      <div>
+        <pre>
+          <CodeBlock text={codeString} />
           <button onClick={copyCodeToClipboard}>Copy Code</button>
-        </div>
-      )}
+        </pre>
+      </div>
     </div>
   );
 };
