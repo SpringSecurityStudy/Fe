@@ -1,5 +1,5 @@
 import CodeBlock from "../components/CodeBlock";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const PerFormBuild = () => {
   const HttpSecurity = `

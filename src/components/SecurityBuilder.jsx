@@ -1,4 +1,4 @@
-import Header from "../Pages/Header";
+import Header from "./Header";
 import CodeBlock from "./CodeBlock";
 import NavigateSpan from "./NavigateSpan";
 

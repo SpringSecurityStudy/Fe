@@ -1,4 +1,4 @@
-import Header from "../Pages/Header";
+import Header from "./Header";
 import CodeBlock from "./CodeBlock";
 const SecurityProperties = `public class SecurityProperties {
      public static class User {

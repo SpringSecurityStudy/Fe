@@ -1,42 +1,41 @@
 import "./SpringSecurity.css";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header.jsx";
+import Header from "../components/Header.jsx";
 import NavigateSpan from "../components/NavigateSpan.jsx";
 import Button from "../components/Button.jsx";
 const SpringSecurity = () => {
   const nav = useNavigate();
   return (
-    <div className="SpirngSecurity">
+    <div className="SpringSecurity">
       <Header text={"SpringSecurity"} />
       <div style={{ display: "flex", gap: "20px" }}>
         <Button navi={"/dependencies"} text={" 의존성 추가"} />
         <Button navi={"/springSecurityInit"} text={"초기화"} />
+        <Button navi={"/formLogin"} text={"FormLogin"} />
+      </div>
+      <div>
+        <Button navi={"/sernamePasswordAuthenticationFilter"} text={"UsernamePasswordAuthenticationFilter"} />
       </div>
       <div className="Architecture">
         <div className="Client">client</div>
         <div className="Was">
-          Was
-          <div className="Servlet">
-            <Button navi={"/dependencies"} text={"Filter"} />
-            <Button navi={"/dependencies"} text={"DelegatingFilterProxy"} />
-            <Button navi={"/dependencies"} text={"Servlet"} />
-          </div>
-          <div>
-            <div className="SpringSecurity">SpringSecurity</div>
-            <div className="SpringMVC">SpringMVC</div>
+          <span>Was</span>
+          <div className="WasContainer">
+            <div className="ServletContainer">
+              ServletContainer
+              <Button navi={"/dependencies"} text={"Filter"} />
+              <span className="DelegatingFilterProxy">
+                <Button navi={"/delegatingFilterProxy"} text={"DelegatingFilterProxy"} />
+              </span>
+              <Button navi={"/dependencies"} text={"Servlet"} />
+            </div>
+            <div className="SpringIOC_Container">
+              SpringIOC_Container
+              <div className="SpringMVC">SpringMVC</div>
+              <div className="filterChainProxy">SpringSecurity(filterChainProxy)</div>
+            </div>
           </div>
         </div>
-
-        {/* <div className="FilterChain">
-          <Button text={"FilterChain"} />
-        </div>
-        <div>
-          <Button text={"Filter"} />
-          ↓
-          <Button text={"DelegatingFilterProxy"} />
-          ↓
-          <Button text={"Servlet"} />
-        </div> */}
       </div>
     </div>
   );

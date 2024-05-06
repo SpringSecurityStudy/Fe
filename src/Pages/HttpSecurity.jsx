@@ -1,6 +1,6 @@
 import CodeBlock from "../components/CodeBlock";
 import NavigateSpan from "../components/NavigateSpan";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const HttpSecurity = () => {
   const httpSecurityConfiguration = `class HttpSecurityConfiguration {

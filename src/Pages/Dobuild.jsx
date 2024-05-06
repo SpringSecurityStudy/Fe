@@ -1,6 +1,6 @@
 import CodeBlock from "../components/CodeBlock";
 import NavigateSpan from "../components/NavigateSpan";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const Dobuild = () => {
   const doBuild = `public abstract class AbstractSecurityBuilder<O> implements SecurityBuilder<O> {

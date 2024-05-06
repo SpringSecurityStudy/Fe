@@ -1,5 +1,5 @@
 import CodeBlock from "../components/CodeBlock";
-import Header from "./Header";
+import Header from "../components/Header";
 
 const WebSecurity = () => {
   const WebSecurityConfiguration = `
@@ -40,29 +40,30 @@ const WebSecurity = () => {
     `;
   const springSecurityFilterChain = `
     public class WebSecurityConfiguration implements ImportAware, BeanClassLoaderAware {
+        @Bean(name = {"springSecurityFilterChain"})
         public Filter springSecurityFilterChain() throws Exception {
-        boolean hasFilterChain = !this.securityFilterChains.isEmpty();
-        if (!hasFilterChain) {
-           ...
-        }
+          boolean hasFilterChain = !this.securityFilterChains.isEmpty();
+          if (!hasFilterChain) {
+            ...
+          }
 
-        Iterator var2 = this.securityFilterChains.iterator();
+          Iterator var2 = this.securityFilterChains.iterator();
 
-        while(var2.hasNext()) {
-            SecurityFilterChain securityFilterChain = (SecurityFilterChain)var2.next();
-            this.webSecurity.addSecurityFilterChainBuilder(() -> {
-                return securityFilterChain;
-            });
-        }
+          while(var2.hasNext()) {
+              SecurityFilterChain securityFilterChain = (SecurityFilterChain)var2.next();
+              this.webSecurity.addSecurityFilterChainBuilder(() -> {
+                  return securityFilterChain;
+              });
+          }
 
-        var2 = this.webSecurityCustomizers.iterator();
+          var2 = this.webSecurityCustomizers.iterator();
 
-        while(var2.hasNext()) {
-            WebSecurityCustomizer customizer = (WebSecurityCustomizer)var2.next();
-            customizer.customize(this.webSecurity);
-        }
+          while(var2.hasNext()) {
+              WebSecurityCustomizer customizer = (WebSecurityCustomizer)var2.next();
+              customizer.customize(this.webSecurity);
+          }
 
-        return (Filter)this.webSecurity.build();
+          return (Filter)this.webSecurity.build();
         }
     }
     `;

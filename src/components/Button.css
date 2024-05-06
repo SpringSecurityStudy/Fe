@@ -1,0 +1,8 @@
+.dependencies {
+  color: aqua;
+  padding: 12px;
+  cursor: pointer;
+  border: solid 2px;
+  width: fit-content;
+  border-radius: 24px;
+}
