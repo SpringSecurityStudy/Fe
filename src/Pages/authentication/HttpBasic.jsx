@@ -29,12 +29,12 @@ const HttpBasic = () => {
   return (
     <div>
       <Header text={"HttpBasic"} />
-      <CodeBlock text={httpBasic} />
       <li>클라이언트에서 요청이 들어온후</li>
       <li>인증이되지 않은 사용자는 헤더에 WWW-Authenticate 추가해서보내주고 사용자의 인증을 요청한다</li>
       <li>클라이언트는 인증요청을 WWW-Authenticate 에 담아서보낸다</li>
       <li>정보는base64로 인코딩이 되기때문에 디코딩이가능하다</li>
       <li>HTTPS 나 TLS 에서 사용해야 그나마 안전하다</li>
+      <CodeBlock text={httpBasic} />
     </div>
   );
 };

@@ -16,6 +16,10 @@ import UsernamePasswordAuthenticationFilter from "./Pages/filter/UsernamePasswor
 import SecurityContext from "./Pages/authentication/SecurityContext";
 import HttpBasic from "./Pages/authentication/HttpBasic";
 import BasicAuthenticationFilter from "./Pages/filter/BasicAuthenticationFilter";
+import RememberMe from "./Pages/authentication/RememberMe";
+import RememberMeAuthenticationFilter from "./Pages/filter/RememberMeAuthenticationFilter";
+import RememberMeAuthenticationToken from "./Pages/Token/RememberMeAuthenticationToken";
+import Architecture from "./Pages/authenticationArchitecture/Architecture";
 
 function App() {
   return (
@@ -37,6 +41,10 @@ function App() {
         <Route path="/securityContext" element={<SecurityContext />}></Route>
         <Route path="/httpBasic" element={<HttpBasic />}></Route>
         <Route path="/basicAuthenticationFilter" element={<BasicAuthenticationFilter />}></Route>
+        <Route path="/rememberMe" element={<RememberMe />}></Route>
+        <Route path="/rememberMeAuthenticationFilter" element={<RememberMeAuthenticationFilter />}></Route>
+        <Route path="/rememberMeAuthenticationToken" element={<RememberMeAuthenticationToken />}></Route>
+        <Route path="/architecture" element={<Architecture />}></Route>
       </Routes>
     </>
   );

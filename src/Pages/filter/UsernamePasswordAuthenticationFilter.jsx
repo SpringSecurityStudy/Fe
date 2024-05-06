@@ -124,7 +124,7 @@ const UsernamePasswordAuthenticationFilter = () => {
       <CodeBlock text={usernamePasswordAuthenticationFilter} />
       <li>username 과 password를 가져와서 UsernamePasswordAuthenticationToken에 저장한다. </li>
       <li>인증전이기때문에 unauthenticated </li>
-      <li>인증처리를 하기위해서 getAuthenticationManager 로 위임한다.</li>
+      <li>인증처리를 하기위해서 AuthenticationManager 로 위임한다.</li>
       <li>sessionStrategy 세션에 저장하고</li>
       <li>
         <NavigateSpan navi={"/securityContext"} text={"successfulAuthentication"} /> SecurityContext에 유저정보를
