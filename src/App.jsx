@@ -13,6 +13,9 @@ import DelegatingFilterProxy from "./Pages/DelegatingFilterProxy";
 import Button from "./components/Button";
 import FormLogin from "./Pages/authentication/FormLogin";
 import UsernamePasswordAuthenticationFilter from "./Pages/filter/UsernamePasswordAuthenticationFilter";
+import SecurityContext from "./Pages/authentication/SecurityContext";
+import HttpBasic from "./Pages/authentication/HttpBasic";
+import BasicAuthenticationFilter from "./Pages/filter/BasicAuthenticationFilter";
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
         <Route path="/delegatingFilterProxy" element={<DelegatingFilterProxy />}></Route>
         <Route path="/formLogin" element={<FormLogin />}></Route>
         <Route path="/usernamePasswordAuthenticationFilter" element={<UsernamePasswordAuthenticationFilter />}></Route>
+        <Route path="/securityContext" element={<SecurityContext />}></Route>
+        <Route path="/httpBasic" element={<HttpBasic />}></Route>
+        <Route path="/basicAuthenticationFilter" element={<BasicAuthenticationFilter />}></Route>
       </Routes>
     </>
   );

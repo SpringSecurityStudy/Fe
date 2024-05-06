@@ -12,9 +12,11 @@ const SpringSecurity = () => {
         <Button navi={"/dependencies"} text={" 의존성 추가"} />
         <Button navi={"/springSecurityInit"} text={"초기화"} />
         <Button navi={"/formLogin"} text={"FormLogin"} />
+        <Button navi={"/httpBasic"} text={"HttpBasic"} />
       </div>
       <div>
-        <Button navi={"/sernamePasswordAuthenticationFilter"} text={"UsernamePasswordAuthenticationFilter"} />
+        <Button navi={"/usernamePasswordAuthenticationFilter"} text={"UsernamePasswordAuthenticationFilter"} />
+        <Button navi={"/basicAuthenticationFilter"} text={"BasicAuthenticationFilter"} />
       </div>
       <div className="Architecture">
         <div className="Client">client</div>

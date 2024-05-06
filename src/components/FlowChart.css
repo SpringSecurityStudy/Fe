@@ -1,0 +1,19 @@
+.Flow {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  justify-items: center;
+}
+.arrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  /* text-align: center; */
+
+  /* width: fit-content; */
+}
+.FlowBox {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
