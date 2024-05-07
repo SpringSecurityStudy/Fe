@@ -13,7 +13,7 @@ import DelegatingFilterProxy from "./Pages/DelegatingFilterProxy";
 import Button from "./components/Button";
 import FormLogin from "./Pages/authentication/FormLogin";
 import UsernamePasswordAuthenticationFilter from "./Pages/filter/UsernamePasswordAuthenticationFilter";
-import SecurityContext from "./Pages/authentication/SecurityContext";
+
 import HttpBasic from "./Pages/authentication/HttpBasic";
 import BasicAuthenticationFilter from "./Pages/filter/BasicAuthenticationFilter";
 import RememberMe from "./Pages/authentication/RememberMe";
@@ -21,6 +21,9 @@ import RememberMeAuthenticationFilter from "./Pages/filter/RememberMeAuthenticat
 import RememberMeAuthenticationToken from "./Pages/Token/RememberMeAuthenticationToken";
 import Architecture from "./Pages/authenticationArchitecture/Architecture";
 import Authentication from "./Pages/authenticationArchitecture/Authentication";
+import SuccessfulAuthentication from "./Pages/method/SuccessfulAuthentication";
+import SecurityContext from "./Pages/authenticationArchitecture/SecurityContext";
+import AbstractAuthenticationProcessingFilter from "./Pages/filter/AbstractAuthenticationProcessingFilter";
 
 function App() {
   return (
@@ -39,7 +42,6 @@ function App() {
         <Route path="/delegatingFilterProxy" element={<DelegatingFilterProxy />}></Route>
         <Route path="/formLogin" element={<FormLogin />}></Route>
         <Route path="/usernamePasswordAuthenticationFilter" element={<UsernamePasswordAuthenticationFilter />}></Route>
-        <Route path="/securityContext" element={<SecurityContext />}></Route>
         <Route path="/httpBasic" element={<HttpBasic />}></Route>
         <Route path="/basicAuthenticationFilter" element={<BasicAuthenticationFilter />}></Route>
         <Route path="/rememberMe" element={<RememberMe />}></Route>
@@ -47,6 +49,13 @@ function App() {
         <Route path="/rememberMeAuthenticationToken" element={<RememberMeAuthenticationToken />}></Route>
         <Route path="/architecture" element={<Architecture />}></Route>
         <Route path="/authentication" element={<Authentication />}></Route>
+        <Route path="/securityContext" element={<SecurityContext />}></Route>
+        <Route path="/securityContextHolder" element={<SecurityContext />}></Route>
+        <Route path="/SuccessfulAuthentication" element={<SuccessfulAuthentication />}></Route>
+        <Route
+          path="/abstractAuthenticationProcessingFilter"
+          element={<AbstractAuthenticationProcessingFilter />}
+        ></Route>
       </Routes>
     </>
   );

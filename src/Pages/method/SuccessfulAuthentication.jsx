@@ -1,11 +1,15 @@
 import CodeBlock from "../../components/CodeBlock";
 import Header from "../../components/Header";
+
 const successfulAuthentication = `
 public abstract class AbstractAuthenticationProcessingFilter{
         protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
+        //.createEmptyContext() EmptyContext를 하나 생성하고
         SecurityContext context = this.securityContextHolderStrategy.createEmptyContext();
+        ontext.setAuthentication(authResult) 인증된 객체를 저장한다.
         context.setAuthentication(authResult);
         this.securityContextHolderStrategy.setContext(context);
+        //이과정을 통해 Context안에는 인증받은 최종객체가 저장되어있다.THREAD_LOCAL
         this.securityContextRepository.saveContext(context, request, response);
         if (this.logger.isDebugEnabled()) {
             this.logger.debug(LogMessage.format("Set SecurityContextHolder to %s", authResult));
@@ -21,10 +25,10 @@ public abstract class AbstractAuthenticationProcessingFilter{
 }
 `;
 
-const SecurityContext = () => {
+const SuccessfulAuthentication = () => {
   return (
     <div>
-      <Header text={"SecurityContext"} />
+      <Header text={"SuccessfulAuthentication"} />
       <CodeBlock text={successfulAuthentication} />
       <li>.createEmptyContext() 빈 Context를 하나 생성하고</li>
       <li>context.setAuthentication(authResult) 인증된 객체를 저장한다.</li>
@@ -33,4 +37,4 @@ const SecurityContext = () => {
   );
 };
 
-export default SecurityContext;
+export default SuccessfulAuthentication;

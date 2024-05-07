@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import "./Architecture.css";
 const ServletFilter = [
   {
-    name: "DelegationgFilterProxy",
+    name: "DelegatingFilterProxy",
   },
   {
     name: "FilterChainProxy(SecurityFilterChain)",
