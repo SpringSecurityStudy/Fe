@@ -1,0 +1,9 @@
+.toggle {
+  padding: 16px;
+  cursor: pointer;
+  border: solid 2px rgb(171, 215, 226);
+  width: fit-content;
+  border-radius: 12px;
+  margin: 12px 0px;
+  color: lightcoral;
+}

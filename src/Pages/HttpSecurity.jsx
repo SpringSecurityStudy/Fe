@@ -8,7 +8,9 @@ const HttpSecurity = () => {
         @Scope("prototype")
         HttpSecurity httpSecurity() throws Exception {
             LazyPasswordEncoder passwordEncoder = new LazyPasswordEncoder(this.context);
+            //AuthenticationManagerBuilder를 만든다 구현체는 DefaultPasswordEncoderAuthenticationManagerBuilder
             AuthenticationManagerBuilder authenticationBuilder = new DefaultPasswordEncoderAuthenticationManagerBuilder(this.objectPostProcessor, passwordEncoder);
+            //인증받을 authenticationManager를 구하고있다. 여기서 DaoAuthenticationProvider 는 defatult로 생성이된다.
             authenticationBuilder.parentAuthenticationManager(this.authenticationManager());
             authenticationBuilder.authenticationEventPublisher(this.getAuthenticationEventPublisher());
             HttpSecurity http = new HttpSecurity(this.objectPostProcessor, authenticationBuilder, this.createSharedObjects());
