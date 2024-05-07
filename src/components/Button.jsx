@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./Button.css";
 
 const Button = ({ navi, text }) => {
+  console.log(navi);
   const nav = useNavigate();
   return (
     <div

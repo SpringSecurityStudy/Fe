@@ -20,6 +20,7 @@ import RememberMe from "./Pages/authentication/RememberMe";
 import RememberMeAuthenticationFilter from "./Pages/filter/RememberMeAuthenticationFilter";
 import RememberMeAuthenticationToken from "./Pages/Token/RememberMeAuthenticationToken";
 import Architecture from "./Pages/authenticationArchitecture/Architecture";
+import Authentication from "./Pages/authenticationArchitecture/Authentication";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/rememberMeAuthenticationFilter" element={<RememberMeAuthenticationFilter />}></Route>
         <Route path="/rememberMeAuthenticationToken" element={<RememberMeAuthenticationToken />}></Route>
         <Route path="/architecture" element={<Architecture />}></Route>
+        <Route path="/authentication" element={<Authentication />}></Route>
       </Routes>
     </>
   );

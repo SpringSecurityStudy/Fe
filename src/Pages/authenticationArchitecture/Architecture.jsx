@@ -11,7 +11,7 @@ const ServletFilter = [
 ];
 const SecurityContextHolder = [
   {
-    name: "AuthenticationFilter",
+    name: "SecurityContextHolder",
     content: "SecurityContext, Authentication, UserDetails",
   },
 ];

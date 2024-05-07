@@ -1,0 +1,13 @@
+.Flows {
+  display: flex;
+  gap: 12px;
+  text-align: center;
+}
+.Flows > div {
+  display: grid;
+  justify-items: center;
+  border: solid 2px;
+  border-radius: 24px;
+  padding: 12px;
+  width: fit-content;
+}
