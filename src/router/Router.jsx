@@ -25,6 +25,7 @@ import AbstractAuthenticationProcessingFilter from "../Pages/filter/AbstractAuth
 import AuthenticationProvider from "../Pages/authenticationArchitecture/AuthenticationProvider";
 import UserDetailsService from "../Pages/authenticationArchitecture/UserDetailsService";
 import DaoAuthenticationProvider from "../Pages/method/DaoAuthenticationProvider";
+import UserDetails from "../Pages/authenticationArchitecture/UserDetails";
 
 const Router = () => {
   return (
@@ -60,7 +61,7 @@ const Router = () => {
         ></Route>
         <Route path="/userDetailsService" element={<UserDetailsService />}></Route>
         <Route path="/daoAuthenticationProvider" element={<DaoAuthenticationProvider />}></Route>
-        <Route path="/" element={<AuthenticationProvider />}></Route>
+        <Route path="/UserDetails" element={<UserDetails />}></Route>
       </Routes>
     </>
   );
