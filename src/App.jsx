@@ -1,13 +1,23 @@
 import "./App.css";
 import Button from "./components/Button";
-import { Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Router from "./router/Router";
 
 function App() {
+  const history = useNavigate();
   return (
     <>
-      <Button navi={"/"} text={"SpringSecurity"} />
+      <div style={{ display: "flex", gap: "24px", padding: "24px" }}>
+        <Button navi={"/"} text={"SpringSecurity"} />
+        <button
+          onClick={() => {
+            history(-1);
+          }}
+        >
+          뒤로가기
+        </button>
+      </div>
       <Router />
     </>
   );

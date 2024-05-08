@@ -4,10 +4,10 @@
   text-align: center;
 }
 .Flows > div {
+  border-radius: 24px;
+  border: solid 2px;
   display: grid;
   justify-items: center;
-  border: solid 2px;
-  border-radius: 24px;
   padding: 12px;
   width: fit-content;
 }

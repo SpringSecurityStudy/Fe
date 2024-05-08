@@ -22,6 +22,9 @@ import SecurityContext from "../Pages/authenticationArchitecture/SecurityContext
 import SuccessfulAuthentication from "../Pages/method/SuccessfulAuthentication";
 import AuthenticationManager from "../Pages/authenticationArchitecture/AuthenticationManager";
 import AbstractAuthenticationProcessingFilter from "../Pages/filter/AbstractAuthenticationProcessingFilter";
+import AuthenticationProvider from "../Pages/authenticationArchitecture/AuthenticationProvider";
+import UserDetailsService from "../Pages/authenticationArchitecture/UserDetailsService";
+import DaoAuthenticationProvider from "../Pages/method/DaoAuthenticationProvider";
 
 const Router = () => {
   return (
@@ -50,10 +53,14 @@ const Router = () => {
         <Route path="/securityContextHolder" element={<SecurityContext />}></Route>
         <Route path="/SuccessfulAuthentication" element={<SuccessfulAuthentication />}></Route>
         <Route path="/authenticationManager" element={<AuthenticationManager />}></Route>
+        <Route path="/authenticationProvider" element={<AuthenticationProvider />}></Route>
         <Route
           path="/abstractAuthenticationProcessingFilter"
           element={<AbstractAuthenticationProcessingFilter />}
         ></Route>
+        <Route path="/userDetailsService" element={<UserDetailsService />}></Route>
+        <Route path="/daoAuthenticationProvider" element={<DaoAuthenticationProvider />}></Route>
+        <Route path="/" element={<AuthenticationProvider />}></Route>
       </Routes>
     </>
   );

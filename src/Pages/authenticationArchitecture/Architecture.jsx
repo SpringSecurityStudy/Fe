@@ -28,6 +28,12 @@ const Authentication = [
   {
     name: "AuthenticationProvider",
   },
+  {
+    name: "UserDetailsService",
+  },
+  {
+    name: "userDetails",
+  },
 ];
 const Authorization = [
   {

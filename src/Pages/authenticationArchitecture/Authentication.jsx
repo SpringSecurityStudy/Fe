@@ -76,7 +76,7 @@ const Authentication = () => {
           <div>authenticated: true</div>
         </div>
         <div>
-          <h3>SecurityContextHolder를</h3>
+          <h3>SecurityContextHolder</h3>
           인증처리가 완료되면 역순으로 AuthenticationFilter까지 올라간후에 Authentication객체를 SecurityContextHolder를
           통해 SecurityContext에 저장한다
         </div>
