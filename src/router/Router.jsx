@@ -26,6 +26,9 @@ import AuthenticationProvider from "../Pages/authenticationArchitecture/Authenti
 import UserDetailsService from "../Pages/authenticationArchitecture/UserDetailsService";
 import DaoAuthenticationProvider from "../Pages/method/DaoAuthenticationProvider";
 import UserDetails from "../Pages/authenticationArchitecture/UserDetails";
+import SecurityContextRepository from "../Pages/authenticationArchitecture/SecurityContextRepository";
+import SecurityContextHolderFilter from "../Pages/filter/SecurityContextHolderFilter";
+import AnonymousAuthenticationFilter from "../Pages/filter/AnonymousAuthenticationFilter";
 
 const Router = () => {
   return (
@@ -62,6 +65,11 @@ const Router = () => {
         <Route path="/userDetailsService" element={<UserDetailsService />}></Route>
         <Route path="/daoAuthenticationProvider" element={<DaoAuthenticationProvider />}></Route>
         <Route path="/UserDetails" element={<UserDetails />}></Route>
+
+        {/* 아직노정리 */}
+        <Route path="/SecurityContextRepository" element={<SecurityContextRepository />}></Route>
+        <Route path="/SecurityContextHolderFilter" element={<SecurityContextHolderFilter />}></Route>
+        <Route path="/AnonymousAuthenticationFilter" element={<AnonymousAuthenticationFilter />}></Route>
       </Routes>
     </>
   );

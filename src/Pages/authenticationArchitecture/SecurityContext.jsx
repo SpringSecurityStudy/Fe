@@ -41,6 +41,43 @@ const context = `
     }
 `;
 
+const contextInit = `
+public final class SecurityContextConfigurer<H extends HttpSecurityBuilder<H>> extends AbstractHttpConfigurer<SecurityContextConfigurer<H>, H> {
+    private boolean requireExplicitSave = true;
+    ...
+    public void configure(H http) {
+        //초기화 과정에서 SecurityContextRepository 객체를 가저온다.
+        //다른 초기화과정에서 이미 SecurityContextRepository가 만들어져있는데 이안에는
+        //securityContextRepository 에는 DelegatingSecurityContextRepository가 있는데 이안에
+        //HttpSessionSecurityContextRepository 와 RequestAttributeSecurityContextRepository 가있다.
+
+        SecurityContextRepository securityContextRepository = this.getSecurityContextRepository();
+        //기본값은 true
+        if (this.requireExplicitSave) {
+            //SecurityContextHolderFilter를 만들어서 securityContextRepository를 저장하는 작업을 수행한다.
+            SecurityContextHolderFilter securityContextHolderFilter = (SecurityContextHolderFilter)this.postProcess(new SecurityContextHolderFilter(securityContextRepository));
+            securityContextHolderFilter.setSecurityContextHolderStrategy(this.getSecurityContextHolderStrategy());
+            http.addFilter(securityContextHolderFilter);
+        } else {
+            SecurityContextPersistenceFilter securityContextFilter = new SecurityContextPersistenceFilter(securityContextRepository);
+            securityContextFilter.setSecurityContextHolderStrategy(this.getSecurityContextHolderStrategy());
+            SessionManagementConfigurer<?> sessionManagement = (SessionManagementConfigurer)http.getConfigurer(SessionManagementConfigurer.class);
+            SessionCreationPolicy sessionCreationPolicy = sessionManagement != null ? sessionManagement.getSessionCreationPolicy() : null;
+            if (SessionCreationPolicy.ALWAYS == sessionCreationPolicy) {
+                securityContextFilter.setForceEagerSessionCreation(true);
+                http.addFilter((Filter)this.postProcess(new ForceEagerSessionCreationFilter()));
+            }
+
+            securityContextFilter = (SecurityContextPersistenceFilter)this.postProcess(securityContextFilter);
+            http.addFilter(securityContextFilter);
+        }
+
+    }
+
+
+}
+`;
+
 const SecurityContext = () => {
   return (
     <div>

@@ -20,6 +20,7 @@ const SpringSecurity = () => {
         <Button navi={"/usernamePasswordAuthenticationFilter"} text={"UsernamePasswordAuthenticationFilter"} />
         <Button navi={"/basicAuthenticationFilter"} text={"BasicAuthenticationFilter"} />
         <Button navi={"/rememberMeAuthenticationFilter"} text={"RememberMeAuthenticationFilter"} />
+        <Button navi={"/SecurityContextHolderFilter"} text={"SecurityContextHolderFilter"} />
       </div>
       <div className="Architecture">
         <div className="Client">client</div>

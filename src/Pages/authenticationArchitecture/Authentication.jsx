@@ -1,5 +1,6 @@
 import CodeBlock from "../../components/CodeBlock";
 import Header from "../../components/Header";
+import NavigateSpan from "../../components/NavigateSpan";
 import "./Authentication.css";
 
 const authentication = `
@@ -79,6 +80,12 @@ const Authentication = () => {
           <h3>SecurityContextHolder</h3>
           인증처리가 완료되면 역순으로 AuthenticationFilter까지 올라간후에 Authentication객체를 SecurityContextHolder를
           통해 SecurityContext에 저장한다
+        </div>
+        <div>
+          <h3>
+            <NavigateSpan navi={"/SecurityContextRepository"} text={"SecurityContextRepository"} />
+          </h3>
+          SecurityContext를 Session에 저장한다
         </div>
       </div>
     </div>
